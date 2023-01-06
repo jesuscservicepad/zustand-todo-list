@@ -12,17 +12,14 @@ interface TaskState {
   clearAll: () => void;
 }
 
-const state = {
+export const useTaskStore = create<TaskState>((set) => ({
   tasks: [
     {
       id: 1,
       text: "Simple task",
     },
   ],
-};
-
-export const useTaskStore = create<TaskState>((set) => ({
-  ...state,
+  taskCompleted: 1,
   create(task) {
     set((state) => ({
       ...state,

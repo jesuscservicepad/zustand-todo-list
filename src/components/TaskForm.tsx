@@ -4,7 +4,9 @@ import { useTaskStore } from "../store/tasks";
 const TaskForm = () => {
   const { create } = useTaskStore();
   const [task, setTask] = useState("");
+
   const handleAdd = () => {
+    if (!task) return;
     create({
       id: new Date().getTime(),
       text: task,
