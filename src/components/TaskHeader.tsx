@@ -2,10 +2,10 @@ import TaskForm from "./TaskForm";
 
 const TaskHeader = () => {
   return (
-    <>
-      <h1>Todo App</h1>
+    <div className="task-header">
+      <h1 className="title">Todo App</h1>
       <TaskForm />
-    </>
+    </div>
   );
 };
 

@@ -5,7 +5,7 @@ import TaskList from "./TaskList";
 
 const Todo = () => {
   return (
-    <section>
+    <section className="todo">
       <TaskHeader />
       <TaskList />
       <TaskFooter />

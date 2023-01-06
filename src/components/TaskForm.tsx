@@ -12,19 +12,20 @@ const TaskForm = () => {
     setTask("");
   };
   return (
-    <>
+    <div className="task-form">
       <input
         type="text"
+        className="task-input"
         placeholder="Add your new todo"
         value={task}
         onChange={(ev) => {
           setTask(ev.target.value);
         }}
       />
-      <button onClick={handleAdd} type="button">
-        +
+      <button onClick={handleAdd} type="button" className="task-btn-add">
+        <i className="fa-solid fa-plus"></i>
       </button>
-    </>
+    </div>
   );
 };
 

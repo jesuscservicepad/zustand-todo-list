@@ -4,7 +4,7 @@ import Task from "./Task";
 const TaskList = () => {
   const { tasks } = useTaskStore();
   return (
-    <ul>
+    <ul className="task-list">
       {tasks.map((task) => (
         <Task task={task} />
       ))}

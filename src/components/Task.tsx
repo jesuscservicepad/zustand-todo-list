@@ -6,15 +6,15 @@ interface props {
 const Task: React.FC<props> = ({ task }) => {
   const { remove } = useTaskStore();
   return (
-    <li>
-      {task.id}--
-      {task.text}
+    <li id={`task-${task.id}`} className="task">
+      <span className="task-text">{task.text}</span>
       <button
         onClick={() => {
           remove(task.id);
         }}
+        className="task-btn-remove"
       >
-        -
+        <i className="fa-solid fa-trash"></i>
       </button>
     </li>
   );
