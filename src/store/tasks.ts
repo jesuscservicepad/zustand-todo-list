@@ -1,4 +1,5 @@
 import create from "zustand";
+import { persist } from "zustand/middleware";
 
 export interface Task {
   id: number;
@@ -15,24 +16,31 @@ interface Actions {
   clearAll: () => void;
 }
 
-export const useTaskStore = create<State & Actions>((set) => ({
-  tasks: [],
-  create(task) {
-    set((state) => ({
-      ...state,
-      tasks: [...state.tasks, task],
-    }));
-  },
-  remove(id) {
-    set((state) => ({
-      ...state,
-      tasks: state.tasks.filter((task) => task.id != id),
-    }));
-  },
-  clearAll() {
-    set((state) => ({
-      ...state,
+export const useTaskStore = create(
+  persist<State & Actions>(
+    (set) => ({
       tasks: [],
-    }));
-  },
-}));
+      create(task) {
+        set((state) => ({
+          ...state,
+          tasks: [...state.tasks, task],
+        }));
+      },
+      remove(id) {
+        set((state) => ({
+          ...state,
+          tasks: state.tasks.filter((task) => task.id != id),
+        }));
+      },
+      clearAll() {
+        set((state) => ({
+          ...state,
+          tasks: [],
+        }));
+      },
+    }),
+    {
+      name: "task",
+    }
+  )
+);
