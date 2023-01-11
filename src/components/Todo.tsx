@@ -1,4 +1,3 @@
-import Task from "./Task";
 import TaskFooter from "./TaskFooter";
 import TaskHeader from "./TaskHeader";
 import TaskList from "./TaskList";

@@ -1,9 +1,9 @@
 import { Task as TaskInterface, useTaskStore } from "../store/tasks";
 
-interface props {
+interface Props {
   task: TaskInterface;
 }
-const Task: React.FC<props> = ({ task }) => {
+const Task: React.FC<Props> = ({ task }) => {
   const { remove } = useTaskStore();
   return (
     <li id={`task-${task.id}`} className="task">

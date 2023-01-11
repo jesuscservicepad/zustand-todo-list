@@ -46,11 +46,12 @@
   align-items: center;
   padding-left: 0.5rem;
   overflow: hidden;
-  background-color: rgb(230, 230, 230);
+  background-color: rgb(240, 239, 239);
   margin-bottom: 0.3rem;
   border-radius: 0.2rem;
 }
-.task:hover .task-btn-remove {
+.task .task-btn-remove,
+  .task:hover .task-btn-remove {
   right: 0;
 }
 .task-btn-remove {

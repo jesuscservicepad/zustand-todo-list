@@ -5,21 +5,18 @@ export interface Task {
   text: string;
 }
 
-interface TaskState {
+interface State {
   tasks: Task[];
+}
+
+interface Actions {
   create: (task: Task) => void;
   remove: (id: number) => void;
   clearAll: () => void;
 }
 
-export const useTaskStore = create<TaskState>((set) => ({
-  tasks: [
-    {
-      id: 1,
-      text: "Simple task",
-    },
-  ],
-  taskCompleted: 1,
+export const useTaskStore = create<State & Actions>((set) => ({
+  tasks: [],
   create(task) {
     set((state) => ({
       ...state,

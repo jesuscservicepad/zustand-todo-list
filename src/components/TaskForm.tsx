@@ -1,11 +1,12 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { useTaskStore } from "../store/tasks";
 
 const TaskForm = () => {
   const { create } = useTaskStore();
   const [task, setTask] = useState("");
 
-  const handleAdd = () => {
+  const handdleSubmit = (ev: React.FormEvent<HTMLFormElement>) => {
+    ev.preventDefault();
     if (!task) return;
     create({
       id: new Date().getTime(),
@@ -14,7 +15,7 @@ const TaskForm = () => {
     setTask("");
   };
   return (
-    <div className="task-form">
+    <form onSubmit={handdleSubmit} className="task-form">
       <input
         type="text"
         className="task-input"
@@ -24,10 +25,10 @@ const TaskForm = () => {
           setTask(ev.target.value);
         }}
       />
-      <button onClick={handleAdd} type="button" className="task-btn-add">
+      <button type="submit" className="task-btn-add">
         <i className="fa-solid fa-plus"></i>
       </button>
-    </div>
+    </form>
   );
 };
 
